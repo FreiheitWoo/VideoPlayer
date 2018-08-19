@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/progress_layout"
+    android:visibility="gone"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_marginTop="-50dp"
+    android:background="#00666666"
+    >
+
+    <!-- 音量图标 -->
+    <ImageView
+        android:id="@+id/operation_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:src="@mipmap/video_volume_bg"
+        />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:paddingTop="10dp"
+        >
+
+        <!-- 音量进度条背景 -->
+        <ImageView
+            android:src="@mipmap/video_num_bg"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:scaleType="fitXY"
+            />
+
+        <!-- 音量进度条前景 -->
+        <ImageView
+            android:id="@+id/operation_percent"
+            android:src="@mipmap/video_num_front"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:scaleType="fitXY"
+            />
+
+    </FrameLayout>
+
+</FrameLayout>

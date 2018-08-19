@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout
+    android:id="@+id/videoLayout"
+    android:layout_width="match_parent"
+    android:layout_height="290dp"
+    android:gravity="top"
+    >
+    <com.example.administrator.videoplayer.CustomVideoView
+        android:id="@+id/videoView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="240dp" />
+
+    <include layout="@layout/layout_progress"/>
+
+    <LinearLayout
+        android:id="@+id/controllerbar_layout"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <SeekBar
+            android:id="@+id/play_seek"
+            android:thumb="@null"
+            android:progressDrawable="@drawable/seekbar_style2"
+            android:max="100"
+            android:progress="20"
+            android:indeterminate="false"
+            android:layout_marginRight="-20dp"
+            android:layout_marginLeft="-20dp"
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:background="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/left_layout"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/pause_img"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/pause_btn_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/time_current_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00:00"
+                    android:textColor="#FFFF00"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="32dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="#4c4c4c"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/time_total_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00:00"
+                    android:textColor="#4c4c4c"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/volume_layout"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/left_layout"
+                android:layout_alignParentRight="true"
+                android:layout_width="10dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/volume_img"
+                    android:visibility="gone"
+                    android:src="@mipmap/volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <SeekBar
+                    android:id="@+id/volume_seek"
+                    android:visibility="gone"
+                    android:indeterminate="false"
+                    android:thumb="@null"
+                    android:progressDrawable="@drawable/seekbar_style"
+                    android:progress="20"
+                    android:max="100"
+                    android:layout_width="100dp"
+                    android:layout_height="5dp" />
+
+                <View
+                    android:background="#1E1E1E"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:src="@mipmap/screen"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:id="@+id/screen_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_url"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:textColor="#FFFFFF"
+        android:background="@null"
+        android:drawableBottom="@drawable/line"
+        android:textCursorDrawable="@drawable/cursor_color"
+        android:hint="输入视频网址或本地视频路径"
+        android:textColorHint="#FFFFFF"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/edit_url"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="网络"
+            android:textColor="#FFFFFF"
+            android:id="@+id/radioButtonStream"
+            android:layout_below="@+id/edit_url"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:checked="false"
+            android:button="@null"
+            android:drawableLeft="@drawable/radio_button_style"
+            android:layout_alignBottom="@+id/start_play" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本地"
+            android:textColor="#FFFFFF"
+            android:id="@+id/radioButtonFile"
+            android:checked="false"
+            android:button="@null"
+            android:drawableLeft="@drawable/radio_button_style"
+            android:layout_alignBottom="@+id/radioButtonStream"
+            android:layout_toRightOf="@+id/radioButtonStream"
+            android:layout_below="@+id/edit_url"
+            />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:text="播放"
+        android:textColor="#FFFFFF"
+        android:id="@+id/start_play"
+        android:layout_below="@+id/edit_url"
+        android:layout_alignRight="@+id/edit_url"
+        android:layout_alignEnd="@+id/edit_url"
+        android:layout_toRightOf="@+id/radioGroup1"
+        android:layout_toEndOf="@+id/radioGroup1"
+        android:background="#40FFFFFF"/>
+
+</RelativeLayout>
